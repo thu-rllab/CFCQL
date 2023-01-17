@@ -25,7 +25,7 @@ Note: The datasets are too large, and the Baidu (Chinese) online disk requires a
 
 ## Usage
 
-Please follow the instructions below to replicate the results in the paper. 
+Please follow the instructions below to replicate the results in the paper. To run CFCQL with $\tau=0$, run the following:
 
 ```
 python main.py --env_id <ENVIRONMENT_NAME> --data_type <DATA_TYPE> --dataset_num <DATASET_NUM> --cql --cf_cql --central_critic
@@ -34,5 +34,14 @@ python main.py --env_id <ENVIRONMENT_NAME> --data_type <DATA_TYPE> --dataset_num
 - env_id: simple_spread/simple_tag/simple_world/HalfCheetah-v2
 - data_type: random/medium-replay/medium/expert
 - dataset_num: 0/1/2/3/4
+
+To run CFCQL with $\tau>0$, you need a pretrained VAE estimator. You can either run the following to train a model:
+```
+python train_vae.py --env_id <ENVIRONMENT_NAME> --data_type <DATA_TYPE>
+```
+or download the model we trained [here](https://drive.google.com/file/d/1gEokIc6HeKl0oBGsUb1F_pf7ZHgDqZiC/view?usp=sharing), and put the 'vae' directory into ./results/. Then you can run CFCQL with $\tau>0$ by the following:
+```
+python main.py --env_id <ENVIRONMENT_NAME> --data_type <DATA_TYPE> --dataset_num <DATASET_NUM> --cql --cf_cql --central_critic --cf_weight --cf_tau <tau>
+```
 
 
