@@ -287,7 +287,7 @@ class CQLearner:
                     if self.args.softmin_temp==0:
                         lambda_mask = th.nn.functional.one_hot(th.argmin(ratio,dim=-1),num_classes=n_agents).detach()
                     else:
-                        lambda_mask = th.nn.functional.softmin(ratio/self.args.softmin_temp,dim=-1).detach() #1126 softkl
+                        lambda_mask = th.nn.functional.softmin(ratio*self.args.softmin_temp,dim=-1).detach() #1126 softkl
                     # lambda_mask = th.nn.functional.one_hot(th.argmin(ratio,dim=-1),num_classes=n_agents).detach()#bs,ts,na
                 negative_sampling = th.concat(negative_sampling,dim=-1)#bs,ts,na
                 negative_sampling = (negative_sampling*lambda_mask).sum(-1,keepdim=True)#bs,ts,1
