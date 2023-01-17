@@ -1,4 +1,4 @@
-This repository is based on the pymarl2:https://github.com/hijkzzz/pymarl2.
+This repository is based on the [pymarl2](https://github.com/hijkzzz/pymarl2).
 
 ## Installation instructions
 
