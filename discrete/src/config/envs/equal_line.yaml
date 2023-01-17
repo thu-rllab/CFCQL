@@ -1,0 +1,15 @@
+env: "equal_line"
+
+env_args:
+  n_agents: 6
+  vision_range: 6
+  episode_limit: 50
+  map_name: 'equal_line_6'
+
+test_greedy: True
+test_nepisode: 32
+test_interval: 10000
+log_interval: 10000
+runner_log_interval: 10000
+learner_log_interval: 10000
+obs_agent_id: True

@@ -1,0 +1,43 @@
+# --- CENTRALV specific parameters ---
+# Independent PPO with value norm, layer_norm, orthogonal, value clip
+# but, without death agent mask, data chunk
+
+action_selector: "multinomial"
+epsilon_start: .0
+epsilon_finish: .0
+epsilon_anneal_time: 500000 #100000
+mask_before_softmax: True
+
+runner: "parallel"
+
+buffer_size: 64
+batch_size_run: 8
+batch_size: 128
+
+mac: 'dt_mac'
+agent: 'gpt'
+
+model_type: 'state_only'
+
+t_max: 10050000
+
+lr: 0.0005
+weight_decay: 0.1
+context_length: 1
+M_update_e: 4
+n_embd: 32
+n_layer: 1
+n_head: 1
+attn_pdrop: 0.
+embd_pdrop: 0.
+resid_pdrop: 0.
+alpha: 0.5
+beta: 0.5
+
+agent_output_type: "pi_logits"
+learner: "baseline_madtkd_learner"
+use_offline: True
+training_episodes: 5000
+
+teacher: False
+name: "baseline_madtkd"

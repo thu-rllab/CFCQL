@@ -1,0 +1,235 @@
+$
+CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=50.0  sparse_lambda=False
+CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=50.0   sparse_lambda=False
+CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=50.0   sparse_lambda=False
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=50.0   sparse_lambda=False
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=50.0   sparse_lambda=False
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=0.5    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=0.5    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=0.5    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=0.5    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=0.5    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=5.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=5.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=5.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=5.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=5.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=200.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=200.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=200.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=200.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=200.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=baseline_icq --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert 
+CUDA_VISIBLE_DEVICES=7 python3 src/main.py --config=baseline_icq --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert
+CUDA_VISIBLE_DEVICES=7 python3 src/main.py --config=baseline_icq --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert 
+CUDA_VISIBLE_DEVICES=7 python3 src/main.py --config=baseline_icq --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert
+CUDA_VISIBLE_DEVICES=7 python3 src/main.py --config=baseline_icq --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=baseline_omar --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=baseline_omar --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=baseline_omar --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=baseline_omar --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=baseline_omar --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert
+
+$
+CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium global_cql_alpha=50.0  sparse_lambda=False
+CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium global_cql_alpha=50.0   sparse_lambda=False
+CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium global_cql_alpha=50.0   sparse_lambda=False
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium global_cql_alpha=50.0   sparse_lambda=False
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium global_cql_alpha=50.0   sparse_lambda=False
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=0.5    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=0.5    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=0.5    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=0.5    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=0.5    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=5.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=5.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=5.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=5.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=5.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=200.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=200.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=200.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=200.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=200.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=baseline_icq --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium
+CUDA_VISIBLE_DEVICES=7 python3 src/main.py --config=baseline_icq --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium
+CUDA_VISIBLE_DEVICES=7 python3 src/main.py --config=baseline_icq --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium
+CUDA_VISIBLE_DEVICES=7 python3 src/main.py --config=baseline_icq --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium
+CUDA_VISIBLE_DEVICES=7 python3 src/main.py --config=baseline_icq --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=baseline_omar --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=baseline_omar --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=baseline_omar --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=baseline_omar --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=baseline_omar --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium
+
+$
+CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=50.0  sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=50.0   sparse_lambda=False raw_cql=True
+# CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=50.0   sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=50.0   sparse_lambda=False raw_cql=True
+# CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=50.0   sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=0.5    sparse_lambda=False raw_cql=True
+# CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=0.5    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=0.5    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=0.5    sparse_lambda=False raw_cql=True
+# CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=0.5    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=5.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=5.0    sparse_lambda=False raw_cql=True
+# CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=5.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=5.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=5.0    sparse_lambda=False raw_cql=True
+# CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=200.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=200.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=200.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=200.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=200.0    sparse_lambda=False raw_cql=True
+
+$
+CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium global_cql_alpha=50.0  sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium global_cql_alpha=50.0   sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium global_cql_alpha=50.0   sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium global_cql_alpha=50.0   sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium global_cql_alpha=50.0   sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=0.5    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=0.5    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=0.5    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=0.5    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=0.5    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=5.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=5.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=5.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=5.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=7 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=5.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=7 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=200.0    sparse_lambda=False raw_cql=True
+$
+CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=200.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=200.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=200.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=200.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=50.0  sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=50.0  sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=5.0  sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=5.0  sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=0.5  sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=0.5  sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=200.0  sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=200.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=7 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=200.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=200.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=200.0    sparse_lambda=False raw_cql=True
+
+$
+CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium_replay global_cql_alpha=50.0  sparse_lambda=False
+CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium_replay global_cql_alpha=50.0   sparse_lambda=False
+CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium_replay global_cql_alpha=50.0   sparse_lambda=False
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium_replay global_cql_alpha=50.0   sparse_lambda=False
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium_replay global_cql_alpha=50.0   sparse_lambda=False
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=0.5    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=0.5    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=0.5    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=0.5    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=0.5    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=5.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=5.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=5.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=5.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=5.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=200.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=200.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=200.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=200.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=200.0    sparse_lambda=False
+CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=baseline_icq --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay 
+CUDA_VISIBLE_DEVICES=7 python3 src/main.py --config=baseline_icq --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay
+CUDA_VISIBLE_DEVICES=7 python3 src/main.py --config=baseline_icq --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay 
+CUDA_VISIBLE_DEVICES=7 python3 src/main.py --config=baseline_icq --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay
+CUDA_VISIBLE_DEVICES=7 python3 src/main.py --config=baseline_icq --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=baseline_omar --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=baseline_omar --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=baseline_omar --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=baseline_omar --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=baseline_omar --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay
+
+
+$
+CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium_replay global_cql_alpha=50.0  sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium_replay global_cql_alpha=50.0   sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium_replay global_cql_alpha=50.0   sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium_replay global_cql_alpha=50.0   sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium_replay global_cql_alpha=50.0   sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=0.5    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=0.5    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=0.5    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=0.5    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=0.5    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=5.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=5.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=5.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=5.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=7 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=5.0    sparse_lambda=False raw_cql=True
+CUDA_VISIBLE_DEVICES=7 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=200.0    sparse_lambda=False raw_cql=True
+
+# $
+# CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium global_cql_alpha=50.0  sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium global_cql_alpha=50.0   sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium global_cql_alpha=50.0   sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium global_cql_alpha=50.0   sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium global_cql_alpha=50.0   sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=0.5    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=0.5    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=0.5    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=0.5    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=0.5    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=5.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=5.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=5.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=5.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=5.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=500.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=500.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=500.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=500.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium global_cql_alpha=500.0    sparse_lambda=True
+# $
+# CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=50.0  sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=50.0   sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=50.0   sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=50.0   sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=expert global_cql_alpha=50.0   sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=0.5    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=0.5    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=0.5    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=0.5    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=0.5    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=5.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=5.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=5.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=5.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=5.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=500.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=500.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=500.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=500.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=expert global_cql_alpha=500.0    sparse_lambda=True
+# $
+# CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium_replay global_cql_alpha=50.0  sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium_replay global_cql_alpha=50.0   sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=0 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium_replay global_cql_alpha=50.0   sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium_replay global_cql_alpha=50.0   sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z h5file_suffix=medium_replay global_cql_alpha=50.0   sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=1 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=0.5    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=0.5    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=0.5    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=2 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=0.5    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=0.5    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=5.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=3 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=5.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=5.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=5.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=4 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=5.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=500.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=500.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=5 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=500.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=500.0    sparse_lambda=True
+# CUDA_VISIBLE_DEVICES=6 python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=1c3s5z  h5file_suffix=medium_replay global_cql_alpha=500.0    sparse_lambda=True
+

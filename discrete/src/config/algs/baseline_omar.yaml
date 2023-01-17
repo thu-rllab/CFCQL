@@ -1,0 +1,42 @@
+# --- COMA specific parameters ---
+
+action_selector: "multinomial"
+epsilon_start: .5
+epsilon_finish: .05
+epsilon_anneal_time: 500000
+mask_before_softmax: True
+
+runner: "parallel"
+batch_size_run: 8 # batch_size_run=4, buffer_size = 2500, batch_size=64  for 3s5z_vs_3s6z
+t_max: 10050000
+
+buffer_size: 32
+batch_size: 128
+
+# env_args:
+#   state_last_action: False # critic adds last action internally
+
+# update the target network every {} training steps
+target_update_interval: 200
+
+
+lr: 0.0001
+critic_lr: 0.0001
+td_lambda: 0.6
+cql_alpha: 5.0
+
+
+omar_iters: 5
+omar_coe: 0.5
+omar_num_samples: 10
+# use qmix
+mixing_embed_dim: 32
+
+# use COMA
+agent_output_type: "pi_logits"
+learner: "omar_learner"
+
+use_offline: True
+# h5file_suffix: 'expert'
+
+name: "baseline_omar"
