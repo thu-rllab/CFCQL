@@ -1,0 +1,32 @@
+# --- CENTRALV specific parameters ---
+# Independent PPO with value norm, layer_norm, orthogonal, value clip
+# but, without death agent mask, data chunk
+action_selector: "multinomial"
+epsilon_start: .0
+epsilon_finish: .0
+epsilon_anneal_time: 500000 #100000
+mask_before_softmax: True
+
+runner: "parallel"
+
+buffer_size: 64
+batch_size_run: 8
+batch_size: 128
+# accumulated_episodes: 32
+
+mac: 'basic_mac'
+agent: 'n_rnn'
+t_max: 10050000
+
+obs_agent_id: True
+
+lr: 0.0005
+mini_epochs: 1
+
+
+agent_output_type: "pi_logits"
+learner: "bc_learner"
+use_offline: True
+training_episodes: 5000
+
+name: "offline_bc"
