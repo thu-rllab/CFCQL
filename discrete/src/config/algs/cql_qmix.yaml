@@ -48,7 +48,7 @@ return_priority: False
 use_offline: True
 use_sarsa: False
 cql_alpha: 5.0
-global_cql_alpha: 5.0
+global_cql_alpha: 50.0
 # counterfactual: 1
 raw_cql: False
 sparse_lambda: False
