@@ -164,7 +164,7 @@ class MATD3CC(object):
             log_mus = self.vae.importance_sampling_estimator(states, torch.cat(actions, dim=1), 0.5, self.nagents, num_samples=20)
             log_pi = actions[0].shape[1] * np.log(1 / (self.cql_sample_noise_level * np.sqrt(2 * np.pi)))
             log_ratio = torch.cat([log_pi - log_mu.unsqueeze(1) for log_mu in log_mus],dim=-1) * self.cf_tau
-            log_ratio = F.softmin(log_ratio,dim=1)
+            log_ratio = F.softmax(log_ratio,dim=1)
         return log_ratio.permute(1,0).unsqueeze(2)
 
 
