@@ -284,10 +284,10 @@ class CQLearner:
                     negative_sampling.append(th.logsumexp(noexp_negative_sampling,dim=-1).unsqueeze(-1))#bs,ts,1(list(na))
                 if self.need_train_behaviour:
                     ratio = th.concat(ratio,dim=-1)#bs,ts,na
-                    if self.args.softmin_temp==0:
-                        lambda_mask = th.nn.functional.one_hot(th.argmin(ratio,dim=-1),num_classes=n_agents).detach()
+                    if self.args.softmax_temp==100:
+                        lambda_mask = th.nn.functional.one_hot(th.argmax(ratio,dim=-1),num_classes=n_agents).detach()
                     else:
-                        lambda_mask = th.nn.functional.softmin(ratio*self.args.softmin_temp,dim=-1).detach() #1126 softkl
+                        lambda_mask = th.nn.functional.softmax(ratio*self.args.softmax_temp,dim=-1).detach() #1126 softkl
                     # lambda_mask = th.nn.functional.one_hot(th.argmin(ratio,dim=-1),num_classes=n_agents).detach()#bs,ts,na
                 negative_sampling = th.concat(negative_sampling,dim=-1)#bs,ts,na
                 negative_sampling = (negative_sampling*lambda_mask).sum(-1,keepdim=True)#bs,ts,1
