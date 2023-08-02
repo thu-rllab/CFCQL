@@ -1,6 +1,7 @@
 
 from .nq_learner import NQLearner
 from .cq_learner import CQLearner
+from .indq_learner import IndQLearner
 from .icq_learner import ICQLearner
 from .bc_learner import BCLearner
 from .omar_learner import OMARLearner
@@ -10,6 +11,7 @@ REGISTRY = {}
 
 REGISTRY["nq_learner"] = NQLearner
 REGISTRY["cq_learner"] = CQLearner
+REGISTRY["indq_learner"] = IndQLearner
 REGISTRY["bc_learner"] = BCLearner
 REGISTRY["icq_learner"] = ICQLearner
 REGISTRY["omar_learner"] = OMARLearner
