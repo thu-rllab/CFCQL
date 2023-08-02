@@ -10,7 +10,7 @@ Install Python packages
 
 ```shell
 # require Anaconda 3 or Miniconda 3
-bash install_dependecies.sh
+bash install_dependencies.sh
 ```
 
 Set up StarCraft II (2.4.10) and SMAC:
