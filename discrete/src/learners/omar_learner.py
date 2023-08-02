@@ -3,7 +3,7 @@ from torch.distributions import Categorical
 from torch.optim.rmsprop import RMSprop
 from components.episode_buffer import EpisodeBatch
 from modules.critics.offpg import OffPGCritic
-from modules.critics.discrete_critic import DoubleDeterMLPNetwork,DoubleMLPNetwork
+from modules.critics.discrete_critic import DoubleMLPNetwork
 import torch as th
 from utils.rl_utils import build_td_lambda_targets, build_target_q
 from torch.optim import Adam
