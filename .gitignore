@@ -28,7 +28,7 @@ share/python-wheels/
 MANIFEST
 results/
 .vscode/
-
+rubbish/
 offline_datasets/
 # PyInstaller
 #  Usually these files are written by a python script from a template
