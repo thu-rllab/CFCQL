@@ -55,7 +55,7 @@ def run(_run, _config, _log):
             args.name = 'raw_'+args.name
             args.sparse_lambda = False
         if getattr(args, 'sparse_lambda', False):
-            args.name = 'slsoftmaxkl_'+str(args.softmax_temp)+'_'+args.name
+            args.name = 'slsoftmaxkl_'+str(args.softmax_temp)+'_'+str(args.training_episodes)+'_'+args.name
         if  getattr(args, 'global_cql_alpha', False):
             tb_suffix += '_global_cql_alpha_'+str(args.global_cql_alpha)+'_'
         elif getattr(args, 'cql_alpha', False):

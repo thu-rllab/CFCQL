@@ -111,7 +111,7 @@ class IndQLearner:
             negative_sampling = th.logsumexp(mac_out[:, :-1],dim=-1)
             # negative_sampling = mac_out.max(dim=-1)[0].mean()
             dataset_expec = th.gather(mac_out[:, :-1], dim=3, index=actions).squeeze(-1)
-            cql_loss = self.args.cql_alpha * ((negative_sampling-dataset_expec)* mask).sum()/mask.sum()
+            cql_loss = self.args.global_cql_alpha * ((negative_sampling-dataset_expec)* mask).sum()/mask.sum()
         else:
             cql_loss = 0
 
@@ -127,9 +127,6 @@ class IndQLearner:
         if (episode_num - self.last_target_update_episode) / self.args.target_update_interval >= 1.0:
             self._update_targets()
             self.last_target_update_episode = episode_num
-        
-        if th.any(th.isnan(cql_loss)) or th.any(th.isnan(grad_norm)):
-            print('there is nan!!!!!!!!!!!!')
 
         if t_env - self.log_stats_t >= self.args.learner_log_interval:
             self.logger.log_stat("loss_td", L_td.item(), t_env)

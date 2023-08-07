@@ -9,7 +9,7 @@ import numpy as np
 
 global_cql_alpha_list= ['0.5','5.0','20.0','50.0','100.0','200.0','500.0']
 level_list = ['medium','expert','_replay','mixed','random']
-algo_list = ['cfcql','rawcql','cqlslmin','cqlslsoft','cqlslmax','baseline_icq','baseline_omar','baseline_madtkd','bc']
+algo_list = ['cfcql','rawcql','cqlslmin','cqlslsoft','cqlslmax','baseline_icq','baseline_omar','baseline_madtkd','bc','baseline_indq','baseline_awac','baseline_iql']
 result={}
 for algo in algo_list:
     result[algo]={}
@@ -63,6 +63,7 @@ for ii in range(len(file_list)):
                             result_info.append('none')
 
                     result_info.append(ea.scalars.Items('final_test_n_episodes')[jj].value)
+                    result_info.append(ea.scalars.Items('final_test_n_episodes')[jj].step)
                     break
             for level in level_list:
                 if level in file_dir_list[ii]:
@@ -101,7 +102,7 @@ import pandas as pd
 # result = np.array(result)
 writer = pd.ExcelWriter(os.path.join(pwd,args.map_name+'.xlsx'))  #关键2，创建名称为hhh的excel表格
 for key in result.keys():
-    data={'exp':[],'return_mean':[],'battle_won':[],'test_episodes':[],'file_name':[]}
+    data={'exp':[],'return_mean':[],'battle_won':[],'test_episodes':[],'test_step':[],'file_name':[]}
     for level in level_list:
         if 'cql' in key:
             for alpha in global_cql_alpha_list:
@@ -111,14 +112,16 @@ for key in result.keys():
                         data['return_mean'].append(result[key][level][alpha][ii][0])
                         data['battle_won'].append(result[key][level][alpha][ii][1])
                         data['test_episodes'].append(result[key][level][alpha][ii][2])
-                        data['file_name'].append(result[key][level][alpha][ii][3])
+                        data['test_step'].append(result[key][level][alpha][ii][3])
+                        data['file_name'].append(result[key][level][alpha][ii][4])
         else:
             for ii in range(len(result[key][level])):
                 data['exp'].append(level)
                 data['return_mean'].append(result[key][level][ii][0])
                 data['battle_won'].append(result[key][level][ii][1])
                 data['test_episodes'].append(result[key][level][ii][2])
-                data['file_name'].append(result[key][level][ii][3])
+                data['test_step'].append(result[key][level][ii][3])
+                data['file_name'].append(result[key][level][ii][4])
 
 
     data_df = pd.DataFrame(data)   #关键1，将ndarray格式转换为DataFrame

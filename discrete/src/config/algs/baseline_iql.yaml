@@ -1,0 +1,34 @@
+# --- COMA specific parameters ---
+
+action_selector: "multinomial"
+epsilon_start: .5
+epsilon_finish: .05
+epsilon_anneal_time: 500000
+mask_before_softmax: True
+
+runner: "parallel"
+batch_size_run: 8 # batch_size_run=4, buffer_size = 2500, batch_size=64  for 3s5z_vs_3s6z
+t_max: 10050000
+
+buffer_size: 32
+batch_size: 128
+
+
+target_update_interval: 600
+step: 5
+
+
+lr: 0.001
+tau: 0.7
+beta: 3.0
+alpha: 0.005
+
+# use COMA
+agent_output_type: "pi_logits"
+learner: "iql_learner"
+
+use_offline: True
+training_episodes: 5000
+# h5file_suffix: 'expert'
+
+name: "baseline_iql"
