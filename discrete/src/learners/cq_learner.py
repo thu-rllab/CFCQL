@@ -279,7 +279,7 @@ class CQLearner:
                         # chosen_action_mu_prob = th.gather(mu_prob,dim=-1,index=total_random_actions[:,:,ii])#bs,ts,1
                         # chosen_action_beta_prob = th.gather(beta_prob[:,:,ii],dim=-1,index=total_random_actions[:,:,ii])#bs,ts,1
                         # ratio.append(chosen_action_mu_prob**2/chosen_action_beta_prob**2)#bs,ts,1
-                        ratio.append((th.nn.functional.kl_div(th.log(beta_prob[:,:,ii]),mu_prob,reduction='none')*avail_actions[:,:-1,ii]).sum(-1,keepdim=True))#bs,ts,1
+                        ratio.append((th.nn.functional.kl_div(th.log(beta_prob[:,:,ii]+0.00001),mu_prob+0.00001,reduction='none')*avail_actions[:,:-1,ii]).sum(-1,keepdim=True))#bs,ts,1
                         # lambda_mask_ii = th.nn.functional.one_hot(th.argmin(ratio,dim=-1),num_classes=n_agents).unsqueeze(-1)
                     negative_sampling.append(th.logsumexp(noexp_negative_sampling,dim=-1).unsqueeze(-1))#bs,ts,1(list(na))
                 if self.need_train_behaviour:

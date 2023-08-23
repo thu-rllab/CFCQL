@@ -73,9 +73,9 @@ class ICQLearner:
             mac_out.append(agent_outs)
         mac_out = th.stack(mac_out, dim=1)
 
-        mac_out[avail_actions == 0] = 0
-        mac_out = mac_out/mac_out.sum(dim=-1, keepdim=True)
-        mac_out[avail_actions == 0] = 0
+        # mac_out[avail_actions == 0] = 0
+        # mac_out = mac_out/mac_out.sum(dim=-1, keepdim=True)
+        # mac_out[avail_actions == 0] = 0
 
         q_taken = th.gather(q_vals, dim=3, index=actions).squeeze(3).view(bs, -1, self.n_agents)
         pi = mac_out.view(-1, self.n_actions)

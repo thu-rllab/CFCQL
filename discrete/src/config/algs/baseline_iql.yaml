@@ -13,30 +13,22 @@ t_max: 10050000
 buffer_size: 32
 batch_size: 128
 
-# env_args:
-#   state_last_action: False # critic adds last action internally
 
-# update the target network every {} training steps
-target_update_interval: 200
+target_update_interval: 600
+step: 5
 
 
 lr: 0.001
-critic_lr: 0.001
-td_lambda: 0.6
-cql_alpha: 5.0
-
-
-omar_iters: 5
-omar_coe: 0.5
-omar_num_samples: 10
-# use qmix
-mixing_embed_dim: 32
+tau: 0.7
+beta: 3.0
+alpha: 0.005
 
 # use COMA
 agent_output_type: "pi_logits"
-learner: "omar_learner"
+learner: "iql_learner"
 
 use_offline: True
+training_episodes: 5000
 # h5file_suffix: 'expert'
 
-name: "baseline_omar"
+name: "baseline_iql"
