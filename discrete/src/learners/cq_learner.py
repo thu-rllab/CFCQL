@@ -212,89 +212,83 @@ class CQLearner:
             masked_td_error = masked_td_error.sum(1) * per_weight
         
         ##add cql loss
-        if self.args.global_cql_alpha < 0.000001:
-            negative_sampling = th.logsumexp(mac_out,dim=-1)
-            # negative_sampling = mac_out.max(dim=-1)[0].mean()
-            dataset_expec = th.gather(mac_out[:, :-1], dim=3, index=actions)
-            cql_loss = self.args.cql_alpha * ((negative_sampling-dataset_expec)* mask).sum()/mask.sum()
+        n_agents = mac_out.shape[2]
+        n_actions = mac_out.shape[3]
+        if self.args.raw_cql:#1121change to avail
+            sample_actions_num = self.args.raw_sample_actions
+            bs = actions.shape[0]
+            ts = actions.shape[1]
+            sample_enough =False
+            repeat_avail_actions = th.repeat_interleave(avail_actions[:,:-1].unsqueeze(0),repeats=sample_actions_num,dim=0)#san,bs,ts,na,ad
+            # while not sample_enough:
+            total_random_actions = th.randint(low=0,high=n_actions,size=(sample_actions_num,bs,ts,n_agents,1)).to(self.args.device)#san,bs,ts,na,1
+            chosen_if_avail = th.gather(repeat_avail_actions, dim=-1, index=total_random_actions).min(-2)[0]#san,bs,ts,1
+            # chosen_if_avail = th.repeat_interleave(chosen_if_avail.unsqueeze(-1),repeats=n_agents,dim=-2)#san,bs,ts,na,1
+            # total_random_actions = total_random_actions[]
+            repeat_mac_out = th.repeat_interleave(mac_out[:,:-1].unsqueeze(0),repeats=sample_actions_num,dim=0)#san,bs,ts,na,ad
+            random_chosen_action_qvals = th.gather(repeat_mac_out, dim=-1, index=total_random_actions).squeeze(-1)#san,bs,ts,na
+            repeat_state = th.repeat_interleave(batch["state"][:, :-1].unsqueeze(0),repeats=sample_actions_num,dim=0)#san,bs,ts,sd
+            random_chosen_action_qvals = random_chosen_action_qvals.view(bs*sample_actions_num,ts,-1)
+            repeat_state = repeat_state.view((bs*sample_actions_num,ts,-1))
+            random_chosen_action_qtotal = self.mixer(random_chosen_action_qvals,repeat_state).view(sample_actions_num,bs,ts,1)#san,bs,ts,1
+            negative_sampling = th.logsumexp(random_chosen_action_qtotal*chosen_if_avail,dim=0)#bs,ts,1
+            dataset_expec = chosen_action_qtotals#bs,ts,1
+            cql_loss = self.args.global_cql_alpha * ((negative_sampling-dataset_expec)* mask).sum()/mask.sum()
+        
         else:
-            n_agents = mac_out.shape[2]
-            n_actions = mac_out.shape[3]
-            if self.args.raw_cql:#1121change to avail
-                sample_actions_num = self.args.raw_sample_actions
-                bs = actions.shape[0]
-                ts = actions.shape[1]
-                sample_enough =False
-                repeat_avail_actions = th.repeat_interleave(avail_actions[:,:-1].unsqueeze(0),repeats=sample_actions_num,dim=0)#san,bs,ts,na,ad
-                # while not sample_enough:
-                total_random_actions = th.randint(low=0,high=n_actions,size=(sample_actions_num,bs,ts,n_agents,1)).to(self.args.device)#san,bs,ts,na,1
-                chosen_if_avail = th.gather(repeat_avail_actions, dim=-1, index=total_random_actions).min(-2)[0]#san,bs,ts,1
-                # chosen_if_avail = th.repeat_interleave(chosen_if_avail.unsqueeze(-1),repeats=n_agents,dim=-2)#san,bs,ts,na,1
-                # total_random_actions = total_random_actions[]
-                repeat_mac_out = th.repeat_interleave(mac_out[:,:-1].unsqueeze(0),repeats=sample_actions_num,dim=0)#san,bs,ts,na,ad
-                random_chosen_action_qvals = th.gather(repeat_mac_out, dim=-1, index=total_random_actions).squeeze(-1)#san,bs,ts,na
-                repeat_state = th.repeat_interleave(batch["state"][:, :-1].unsqueeze(0),repeats=sample_actions_num,dim=0)#san,bs,ts,sd
-                random_chosen_action_qvals = random_chosen_action_qvals.view(bs*sample_actions_num,ts,-1)
-                repeat_state = repeat_state.view((bs*sample_actions_num,ts,-1))
-                random_chosen_action_qtotal = self.mixer(random_chosen_action_qvals,repeat_state).view(sample_actions_num,bs,ts,1)#san,bs,ts,1
-                negative_sampling = th.logsumexp(random_chosen_action_qtotal*chosen_if_avail,dim=0)#bs,ts,1
-                dataset_expec = chosen_action_qtotals#bs,ts,1
-                cql_loss = self.args.global_cql_alpha * ((negative_sampling-dataset_expec)* mask).sum()/mask.sum()
-            
-            else:
-                # total_random_actions = th.randint_like(actions,high=n_actions) #不如数据集数据，会爆炸
-                total_random_actions = actions
-                # total_random_actions = mac_out[:, :-1].max(dim=-1,keepdim=True)[1]
-                lambda_mask = th.ones_like(actions).squeeze(-1)/n_agents
+            # total_random_actions = th.randint_like(actions,high=n_actions) #不如数据集数据，会爆炸
+            total_random_actions = actions
+            # total_random_actions = mac_out[:, :-1].max(dim=-1,keepdim=True)[1]
+            lambda_mask = th.ones_like(actions).squeeze(-1)/n_agents
+            if self.need_train_behaviour:
+                # mu_prob = th.exp(mac_out[:,:-1])
+                beta_prob = []
+                self.behaviour_mac.init_hidden(batch.batch_size)
+                for t in range(batch.max_seq_length-1):
+                    agent_outs = self.behaviour_mac.forward(batch, t=t)
+                    beta_prob.append(agent_outs)
+                beta_prob = th.stack(beta_prob, dim=1)
+                # beta_prob[avail_actions[:,:-1] == 0] = 1e-10
+                # log_pi_beta = th.log(pi_beta) #bs,ts-1,na,ad
+                ratio = []
+            negative_sampling=[]
+            for ii in range(n_agents):
+                noexp_negative_sampling = []
+                for jj in range(n_actions):
+                    random_actions = th.concat([total_random_actions[:,:,:ii],th.ones_like(actions[:,:,0:1]).to(self.args.device)*jj,total_random_actions[:,:,ii+1:]],dim=2)
+                    random_chosen_action_qvals = th.gather(mac_out[:, :-1], dim=3, index=random_actions).squeeze(-1)
+                    random_chosen_action_qtotal = self.mixer(random_chosen_action_qvals,batch["state"][:, :-1])#bs,ts,1
+                    random_chosen_action_qtotal[avail_actions[:,:-1,ii,jj]==0]=-1e10
+                    noexp_negative_sampling.append(random_chosen_action_qtotal)
+                noexp_negative_sampling = th.concat(noexp_negative_sampling,dim=-1)
                 if self.need_train_behaviour:
-                    # mu_prob = th.exp(mac_out[:,:-1])
-                    beta_prob = []
-                    self.behaviour_mac.init_hidden(batch.batch_size)
-                    for t in range(batch.max_seq_length-1):
-                        agent_outs = self.behaviour_mac.forward(batch, t=t)
-                        beta_prob.append(agent_outs)
-                    beta_prob = th.stack(beta_prob, dim=1)
-                    # beta_prob[avail_actions[:,:-1] == 0] = 1e-10
-                    # log_pi_beta = th.log(pi_beta) #bs,ts-1,na,ad
-                    ratio = []
-                negative_sampling=[]
-                for ii in range(n_agents):
-                    noexp_negative_sampling = []
-                    for jj in range(n_actions):
-                        random_actions = th.concat([total_random_actions[:,:,:ii],th.ones_like(actions[:,:,0:1]).to(self.args.device)*jj,total_random_actions[:,:,ii+1:]],dim=2)
-                        random_chosen_action_qvals = th.gather(mac_out[:, :-1], dim=3, index=random_actions).squeeze(-1)
-                        random_chosen_action_qtotal = self.mixer(random_chosen_action_qvals,batch["state"][:, :-1])#bs,ts,1
-                        random_chosen_action_qtotal[avail_actions[:,:-1,ii,jj]==0]=-1e10
-                        noexp_negative_sampling.append(random_chosen_action_qtotal)
-                    noexp_negative_sampling = th.concat(noexp_negative_sampling,dim=-1)
-                    if self.need_train_behaviour:
-                        mu_prob = th.nn.functional.softmax(noexp_negative_sampling,dim=-1)#bs,ts,ad
-                        # mu_prob[avail_actions[:,:-1,ii]==0]=1e-10
-                        # log_mu_prob = th.log(mu_prob)#bs,ts,ad,
-                        # mu_prob = th.exp(noexp_negative_sampling).squeeze(-1).permute(1,2,0)
-                        # mu_prob = mu_prob/th.sum(mu_prob,dim=-1,keepdim=True)
-                        assert beta_prob[:,:,ii].shape == mu_prob.shape
-                        # ratio = th.sum(2*log_mu_prob-log_beta_prob[:,:,ii],dim=-1).unsqueeze(-1)
+                    mu_prob = th.nn.functional.softmax(noexp_negative_sampling,dim=-1)#bs,ts,ad
+                    # mu_prob[avail_actions[:,:-1,ii]==0]=1e-10
+                    # log_mu_prob = th.log(mu_prob)#bs,ts,ad,
+                    # mu_prob = th.exp(noexp_negative_sampling).squeeze(-1).permute(1,2,0)
+                    # mu_prob = mu_prob/th.sum(mu_prob,dim=-1,keepdim=True)
+                    assert beta_prob[:,:,ii].shape == mu_prob.shape
+                    # ratio = th.sum(2*log_mu_prob-log_beta_prob[:,:,ii],dim=-1).unsqueeze(-1)
 
-                        # chosen_action_mu_prob = th.gather(mu_prob,dim=-1,index=total_random_actions[:,:,ii])#bs,ts,1
-                        # chosen_action_beta_prob = th.gather(beta_prob[:,:,ii],dim=-1,index=total_random_actions[:,:,ii])#bs,ts,1
-                        # ratio.append(chosen_action_mu_prob**2/chosen_action_beta_prob**2)#bs,ts,1
-                        ratio.append((th.nn.functional.kl_div(th.log(beta_prob[:,:,ii]+0.00001),mu_prob+0.00001,reduction='none')*avail_actions[:,:-1,ii]).sum(-1,keepdim=True))#bs,ts,1
-                        # lambda_mask_ii = th.nn.functional.one_hot(th.argmin(ratio,dim=-1),num_classes=n_agents).unsqueeze(-1)
-                    negative_sampling.append(th.logsumexp(noexp_negative_sampling,dim=-1).unsqueeze(-1))#bs,ts,1(list(na))
-                if self.need_train_behaviour:
-                    ratio = th.concat(ratio,dim=-1)#bs,ts,na
-                    if self.args.softmax_temp==100:
-                        lambda_mask = th.nn.functional.one_hot(th.argmax(ratio,dim=-1),num_classes=n_agents).detach()
-                    else:
-                        lambda_mask = th.nn.functional.softmax(ratio*self.args.softmax_temp,dim=-1).detach() #1126 softkl
-                    # lambda_mask = th.nn.functional.one_hot(th.argmin(ratio,dim=-1),num_classes=n_agents).detach()#bs,ts,na
-                negative_sampling = th.concat(negative_sampling,dim=-1)#bs,ts,na
-                negative_sampling = (negative_sampling*lambda_mask).sum(-1,keepdim=True)#bs,ts,1
+                    # chosen_action_mu_prob = th.gather(mu_prob,dim=-1,index=total_random_actions[:,:,ii])#bs,ts,1
+                    # chosen_action_beta_prob = th.gather(beta_prob[:,:,ii],dim=-1,index=total_random_actions[:,:,ii])#bs,ts,1
+                    # ratio.append(chosen_action_mu_prob**2/chosen_action_beta_prob**2)#bs,ts,1
+                    ratio.append((th.nn.functional.kl_div(th.log(beta_prob[:,:,ii]+0.00001),mu_prob+0.00001,reduction='none')*avail_actions[:,:-1,ii]).sum(-1,keepdim=True))#bs,ts,1
+                    # lambda_mask_ii = th.nn.functional.one_hot(th.argmin(ratio,dim=-1),num_classes=n_agents).unsqueeze(-1)
+                negative_sampling.append(th.logsumexp(noexp_negative_sampling,dim=-1).unsqueeze(-1))#bs,ts,1(list(na))
+            if self.need_train_behaviour:
+                ratio = th.concat(ratio,dim=-1)#bs,ts,na
+                if self.args.softmax_temp==100:
+                    lambda_mask = th.nn.functional.one_hot(th.argmax(ratio,dim=-1),num_classes=n_agents).detach()
+                else:
+                    lambda_mask = th.nn.functional.softmax(ratio*self.args.softmax_temp,dim=-1).detach() #1126 softkl
+                # lambda_mask = th.nn.functional.one_hot(th.argmin(ratio,dim=-1),num_classes=n_agents).detach()#bs,ts,na
+            negative_sampling = th.concat(negative_sampling,dim=-1)#bs,ts,na
+            negative_sampling = (negative_sampling*lambda_mask).sum(-1,keepdim=True)#bs,ts,1
 
-                # negative_sampling = th.logsumexp(noexp_negative_sampling,dim=0).mean()
-                dataset_expec = chosen_action_qtotals
-                cql_loss = self.args.global_cql_alpha * ((negative_sampling-dataset_expec)* mask).sum()/mask.sum()
+            # negative_sampling = th.logsumexp(noexp_negative_sampling,dim=0).mean()
+            dataset_expec = chosen_action_qtotals
+            cql_loss = self.args.global_cql_alpha * ((negative_sampling-dataset_expec)* mask).sum()/mask.sum()
 
 
 
