@@ -3,7 +3,6 @@ from components.episode_buffer import EpisodeBatch
 from modules.mixers.nmix import Mixer
 from modules.mixers.vdn import VDNMixer
 from modules.mixers.qatten import QattenMixer
-from envs.matrix_game import print_matrix_status
 from utils.rl_utils import build_td_lambda_targets, build_q_lambda_targets
 import torch as th
 from torch.optim import RMSprop, Adam
@@ -54,7 +53,7 @@ class CQLearner:
         
         # train behaviour
         self.need_train_behaviour = False
-        if getattr(self.args, 'sparse_lambda', False) or getattr(self.args, 'cal_dcql', False):
+        if getattr(self.args, 'moderate_lambda', False):
             self.behaviour_train_steps = 0 
             self.behaviour_log_stats_t = 0
             self.need_train_behaviour = True
@@ -72,14 +71,6 @@ class CQLearner:
             self.behaviour_mac = mac_REGISTRY['basic_mac'](scheme, None, args)
             self.behaviour_params = list(self.behaviour_mac.parameters())
             self.behaviour_optimiser = Adam(params=self.behaviour_params, lr=args.lr)
-            # self.behaviour_scheduler = th.optim.lr_scheduler.ExponentialLR(optimizer=self.behaviour_optimiser, gamma=0.9)
-            # from utils.vae import VAE
-            # self.behaviour_train_steps = 0 
-            # self.behaviour_log_stats_t = 0
-            # self.behaviour_model = VAE(state_dim=scheme['obs']['vshape'], action_dim=self.args.n_actions, latent_dim=self.args.n_actions*2)
-            # self.behaviour_params = list(self.behaviour_model.parameters())
-            # self.behaviour_optimiser = Adam(params=self.behaviour_params, lr=args.lr)
-            # self.behaviour_scheduler = th.optim.lr_scheduler.ExponentialLR(optimizer=self.behaviour_optimizer, gamma=0.98)
 
     def save_behaviour_model(self,path):
         self.behaviour_mac.save_models(path)
@@ -123,7 +114,6 @@ class CQLearner:
 
         if self.behaviour_train_steps - self.behaviour_log_stats_t >= 20:
             self.logger.log_stat("bc_loss", loss.item(), self.behaviour_train_steps)
-            # self.logger.log_stat("bc_lr", self.behaviour_scheduler.get_lr()[0], self.behaviour_train_steps)
             self.behaviour_log_stats_t = self.behaviour_train_steps
             self.logger.console_logger.info("Behaviour model training loss: {}, training steps: {}".format(loss.item(), self.behaviour_train_steps))
         if loss.item()<self.last_min_loss:
@@ -134,9 +124,7 @@ class CQLearner:
         behaviour_train_done = self.epoch_since_last_min_loss > 20
         if behaviour_train_done:
             self.epoch_since_last_min_loss=0
-            # self.behaviour_scheduler.step()
             self.logger.log_stat("bc_loss", loss.item(), self.behaviour_train_steps)
-            # self.logger.log_stat("bc_lr", self.behaviour_scheduler.get_lr()[0], self.behaviour_train_steps)
 
         return behaviour_train_done,loss.item()
         
@@ -223,8 +211,6 @@ class CQLearner:
             # while not sample_enough:
             total_random_actions = th.randint(low=0,high=n_actions,size=(sample_actions_num,bs,ts,n_agents,1)).to(self.args.device)#san,bs,ts,na,1
             chosen_if_avail = th.gather(repeat_avail_actions, dim=-1, index=total_random_actions).min(-2)[0]#san,bs,ts,1
-            # chosen_if_avail = th.repeat_interleave(chosen_if_avail.unsqueeze(-1),repeats=n_agents,dim=-2)#san,bs,ts,na,1
-            # total_random_actions = total_random_actions[]
             repeat_mac_out = th.repeat_interleave(mac_out[:,:-1].unsqueeze(0),repeats=sample_actions_num,dim=0)#san,bs,ts,na,ad
             random_chosen_action_qvals = th.gather(repeat_mac_out, dim=-1, index=total_random_actions).squeeze(-1)#san,bs,ts,na
             repeat_state = th.repeat_interleave(batch["state"][:, :-1].unsqueeze(0),repeats=sample_actions_num,dim=0)#san,bs,ts,sd
@@ -236,9 +222,7 @@ class CQLearner:
             cql_loss = self.args.global_cql_alpha * ((negative_sampling-dataset_expec)* mask).sum()/mask.sum()
         
         else:
-            # total_random_actions = th.randint_like(actions,high=n_actions) #不如数据集数据，会爆炸
             total_random_actions = actions
-            # total_random_actions = mac_out[:, :-1].max(dim=-1,keepdim=True)[1]
             lambda_mask = th.ones_like(actions).squeeze(-1)/n_agents
             if self.need_train_behaviour:
                 # mu_prob = th.exp(mac_out[:,:-1])
@@ -248,8 +232,6 @@ class CQLearner:
                     agent_outs = self.behaviour_mac.forward(batch, t=t)
                     beta_prob.append(agent_outs)
                 beta_prob = th.stack(beta_prob, dim=1)
-                # beta_prob[avail_actions[:,:-1] == 0] = 1e-10
-                # log_pi_beta = th.log(pi_beta) #bs,ts-1,na,ad
                 ratio = []
             negative_sampling=[]
             for ii in range(n_agents):
@@ -263,18 +245,8 @@ class CQLearner:
                 noexp_negative_sampling = th.concat(noexp_negative_sampling,dim=-1)
                 if self.need_train_behaviour:
                     mu_prob = th.nn.functional.softmax(noexp_negative_sampling,dim=-1)#bs,ts,ad
-                    # mu_prob[avail_actions[:,:-1,ii]==0]=1e-10
-                    # log_mu_prob = th.log(mu_prob)#bs,ts,ad,
-                    # mu_prob = th.exp(noexp_negative_sampling).squeeze(-1).permute(1,2,0)
-                    # mu_prob = mu_prob/th.sum(mu_prob,dim=-1,keepdim=True)
                     assert beta_prob[:,:,ii].shape == mu_prob.shape
-                    # ratio = th.sum(2*log_mu_prob-log_beta_prob[:,:,ii],dim=-1).unsqueeze(-1)
-
-                    # chosen_action_mu_prob = th.gather(mu_prob,dim=-1,index=total_random_actions[:,:,ii])#bs,ts,1
-                    # chosen_action_beta_prob = th.gather(beta_prob[:,:,ii],dim=-1,index=total_random_actions[:,:,ii])#bs,ts,1
-                    # ratio.append(chosen_action_mu_prob**2/chosen_action_beta_prob**2)#bs,ts,1
                     ratio.append((th.nn.functional.kl_div(th.log(beta_prob[:,:,ii]+0.00001),mu_prob+0.00001,reduction='none')*avail_actions[:,:-1,ii]).sum(-1,keepdim=True))#bs,ts,1
-                    # lambda_mask_ii = th.nn.functional.one_hot(th.argmin(ratio,dim=-1),num_classes=n_agents).unsqueeze(-1)
                 negative_sampling.append(th.logsumexp(noexp_negative_sampling,dim=-1).unsqueeze(-1))#bs,ts,1(list(na))
             if self.need_train_behaviour:
                 ratio = th.concat(ratio,dim=-1)#bs,ts,na
@@ -327,9 +299,6 @@ class CQLearner:
                 self.logger.log_stat("lambda_mask_mean",((lambda_mask*mask).sum().item())/mask_elems,t_env)
             self.log_stats_t = t_env
             
-            # print estimated matrix
-            if self.args.env == "one_step_matrix_game":
-                print_matrix_status(batch, self.mixer, mac_out)
 
         # return info
         info = {}

@@ -53,8 +53,8 @@ def run(_run, _config, _log):
                 args.name='teacher_'+args.name+'_'
         if getattr(args, 'raw_cql', False):
             args.name = 'raw_'+args.name
-            args.sparse_lambda = False
-        if getattr(args, 'sparse_lambda', False):
+            args.moderate_lambda = False
+        if getattr(args, 'moderate_lambda', False):
             args.name = 'slsoftmaxkl_'+str(args.softmax_temp)+'_'+str(args.training_episodes)+'_'+args.name
         if  getattr(args, 'global_cql_alpha', False):
             tb_suffix += '_global_cql_alpha_'+str(args.global_cql_alpha)+'_'
@@ -249,7 +249,7 @@ def run_sequential(args, logger):
         data_dir=os.path.join(dirname(dirname(dirname(abspath(__file__)))), "offline_datasets")
         total_datas,hdkey = load_datasets(args,logger,data_dir)
         #####################################
-        if getattr(args, 'sparse_lambda', False) or getattr(args, 'cal_dcql', False):
+        if getattr(args, 'moderate_lambda', False):
             train_behaviour_policy(args,total_datas,logger,learner,runner,data_dir,hdkey,scheme, groups,preprocess)
 
     while runner.t_env <= args.t_max:
@@ -268,9 +268,6 @@ def run_sequential(args, logger):
             new_batch = EpisodeBatch(scheme, groups, args.batch_size, runner.episode_limit + 1,preprocess=preprocess, device=args.device)
             new_batch.update(off_batch)
             new_batch.data.transition_data['filled'] = filled_sample
-            if getattr(args, 'cal_dcql', False):
-                learner.cal_Dcql(new_batch, runner.t_env)
-                exit(0)
             learner.train(new_batch, runner.t_env, episode)
         else:
             with th.no_grad():

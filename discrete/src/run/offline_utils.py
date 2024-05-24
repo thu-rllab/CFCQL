@@ -20,7 +20,7 @@ def train_behaviour_policy(args,total_datas,logger,learner,runner,data_dir,hdkey
     else:
         logger.console_logger.info("Training behaviour models")
         behaviour_last_log_T = 0
-        while behaviour_train_steps<1e7:
+        while behaviour_train_steps<args.max_behaviour_train_steps:
             # Run for a whole episode at a time
             sample_number = np.random.choice(len(total_datas[hdkey[0]]), args.batch_size, replace=False)
             off_batch = {}
@@ -63,6 +63,8 @@ def load_datasets(args,logger,data_dir):
     return total_datas,hdkey
 
 def sample_medium_replay(args,scheme,buffer):
+    if not os.path.exists(os.path.join(dirname(dirname(dirname(abspath(__file__)))), "offline_datasets")):
+        os.makedirs(os.path.join(dirname(dirname(dirname(abspath(__file__)))), "offline_datasets"), exist_ok=True)
     data_dir=os.path.join(dirname(dirname(dirname(abspath(__file__)))), "offline_datasets",args.env_args['map_name']+'_medium_replay'+  '.h5')
     if os.path.exists(data_dir):
         os.remove(data_dir)

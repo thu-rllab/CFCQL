@@ -49,10 +49,11 @@ label: "default_label"
 ##offline
 use_offline: False #use_offline_run for offline training or data collection
 collect_data: False
-checkpoint_path: "" #"/home/quy/mypymarl2/results/models/vdn_env=16_adam_td_lambda__academy_counterattack_hard__parallel__2022-10-29_13-41-32"  # Load a checkpoint from this path
+checkpoint_path: "" # Load a checkpoint from this path
 collect_nepisode: 50000
 h5file_suffix: 'expert'
 load_step: 0 # Load model trained on this many timesteps (0 if choose max possible)
 training_episodes: 5000
+max_behaviour_train_steps: 10000000
 
 run: "default"

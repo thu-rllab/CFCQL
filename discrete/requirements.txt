@@ -1,0 +1,87 @@
+absl-py==2.1.0
+Brotli @ file:///croot/brotli-split_1714483155106/work
+certifi @ file:///croot/certifi_1707229174982/work/certifi
+charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
+colorama==0.4.6
+contourpy==1.1.1
+cycler==0.12.1
+deepdiff==7.0.1
+dm-env==1.6
+dm-env-rpc==1.1.6
+dm-tree==0.1.8
+docopt==0.6.2
+enum34==1.1.10
+exceptiongroup==1.2.1
+filelock @ file:///croot/filelock_1700591183607/work
+fonttools==4.51.0
+gitdb==4.0.11
+GitPython==3.1.43
+gmpy2 @ file:///tmp/build/80754af9/gmpy2_1645455532332/work
+googleapis-common-protos==1.63.0
+grpcio==1.64.0
+gym==0.11.0
+h5py==3.11.0
+idna @ file:///croot/idna_1714398848350/work
+imageio==2.34.1
+immutabledict==4.2.0
+importlib_resources==6.4.0
+iniconfig==2.0.0
+Jinja2 @ file:///croot/jinja2_1706733616596/work
+jsonpickle==1.5.2
+kiwisolver==1.4.5
+libtmux==0.37.0
+MarkupSafe @ file:///croot/markupsafe_1704205993651/work
+matplotlib==3.7.5
+mkl-fft @ file:///croot/mkl_fft_1695058164594/work
+mkl-random @ file:///croot/mkl_random_1695059800811/work
+mkl-service==2.4.0
+mock==5.1.0
+mpmath @ file:///croot/mpmath_1690848262763/work
+mpyq==0.2.5
+munch==2.5.0
+networkx @ file:///croot/networkx_1690561992265/work
+numpy @ file:///work/mkl/numpy_and_numpy_base_1682953417311/work
+opencv-python==4.9.0.80
+ordered-set==4.1.0
+packaging==24.0
+pandas==2.0.3
+pillow @ file:///croot/pillow_1714398848491/work
+pluggy==1.5.0
+portpicker==1.6.0
+probscale==0.2.5
+protobuf==3.20.2
+psutil==5.9.8
+py-cpuinfo==9.0.0
+pygame==2.5.2
+pyglet==2.0.15
+pyparsing==3.1.2
+PySC2==4.0.0
+PySocks @ file:///tmp/build/80754af9/pysocks_1605305779399/work
+pytest==8.2.1
+python-dateutil==2.9.0.post0
+pytz==2024.1
+PyYAML==5.3.1
+requests @ file:///croot/requests_1707355572290/work
+s2clientprotocol==5.0.12.91115.0
+s2protocol==5.0.12.91115.0
+sacred==0.8.2
+scipy==1.10.1
+seaborn==0.13.2
+six==1.16.0
+sk-video==1.1.10
+SMAC @ git+https://github.com/oxwhirl/smac.git@d6aab33f76abc3849c50463a8592a84f59a5ef84
+smmap==5.0.1
+snakeviz==2.2.0
+sympy @ file:///croot/sympy_1701397643339/work
+tensorboard-logger==0.1.0
+tomli==2.0.1
+torch==2.3.0
+torchaudio==2.3.0
+torchvision==0.18.0
+tornado==6.4
+typing_extensions @ file:///croot/typing_extensions_1715268824938/work
+tzdata==2024.1
+urllib3 @ file:///croot/urllib3_1715635851070/work
+websocket-client==1.8.0
+wrapt==1.16.0
+zipp==3.18.2

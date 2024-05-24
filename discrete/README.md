@@ -56,7 +56,7 @@ python mixed.py
 
 ```shell
 #For CFCQL
-python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=2s3z  h5file_suffix=medium global_cql_alpha=5.0  sparse_lambda=True softmax_temp=1
+python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=2s3z  h5file_suffix=medium global_cql_alpha=5.0  moderate_lambda=True softmax_temp=1
 ```
 
 ```shell

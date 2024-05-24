@@ -49,19 +49,16 @@ use_offline: True
 use_sarsa: False
 cql_alpha: 5.0
 global_cql_alpha: 50.0
-# counterfactual: 1
-raw_cql: False
-sparse_lambda: False
-softmax_temp: 5
 training_episodes: 5000
-raw_sample_actions: 100
-# behaviour_checkpoint_path: "" #"/home/quy/mypymarl2/offline_datasets/6h_vs_8z_expert_bcmodel" 
 
-cal_dcql: False
-# collect_data: False
-# checkpoint_path: "" #"/home/qy/mypymarl2/results/models/qmix_env=8_adam_td_lambda__5m_vs_6m__parallel__2022-10-11_19-27-20" # Load a checkpoint from this path
-# collect_nepisode: 10000
-# h5file_suffix: 'expert'
-# load_step: 0 # Load model trained on this many timesteps (0 if choose max possible)
+#moderate softmax variant lambda
+moderate_lambda: True
+softmax_temp: 5
+
+
+#macql
+raw_cql: False
+raw_sample_actions: 100
+
 
 name: "cql_qmix_env=8_adam_td_lambda"
