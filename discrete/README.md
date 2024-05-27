@@ -25,7 +25,8 @@ This will download SC2.4.10 into the 3rdparty folder and copy the maps necessary
 
 Datasets for sc2 are available at the following links. Please download the datasets and decompress them to the "offline_datasets" folder.
 
-- [sc2datasets](https://drive.google.com/file/d/1nIRwMrbIy6oJuuIM0okVm6DzDaWpNIqJ/view?usp=share_link)
+- [sc2datasets](https://drive.google.com/file/d/1Hn0CxnGDiwF9i7ugiLCyUYz-GzIkdQeD/view?usp=sharing)
+
 
 ## Command Line Tool
 
