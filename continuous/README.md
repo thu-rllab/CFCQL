@@ -23,6 +23,10 @@ Datasets for different tasks are available at the following links uploaded by th
 
 Note: The datasets are too large, and the Baidu (Chinese) online disk requires a password for accessing it. Please just enter the password in the input box and click the blue button. The dataset can then be downloaded by cliking the "download" button (the second white button).
 
+We have re-uploaded the datasets for the Predator-Prey and World to Google Drive.
+- [Predator-Prey](https://drive.google.com/file/d/1BQEXoMHYOpKOlDKeuYoZKxZ8SmlZBssq/view?usp=sharing)
+- [World](https://drive.google.com/file/d/1amwez0Wft5flKn-TI0D4akEVi7am6OPE/view?usp=sharing)
+
 ## Usage
 
 Please follow the instructions below to replicate the results in the paper. To run CFCQL with $\tau=0$, run the following:
