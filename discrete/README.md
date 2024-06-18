@@ -68,22 +68,19 @@ python3 src/main.py --config=cql_qmix --env-config=sc2 with env_args.map_name=2s
 **Hyperparameters**
 
 | **Map**         | **Dataset**      | **global\_cql\_alpha** | **softmax\_temp**    |
-|-----------------|:------------------:|:-----------------------:|:----------------------:|
+|:-----------------:|:------------------:|:-----------------------:|:----------------------:|
 | **2s3z**        | medium           | 0.1                   | 0.5                  |
 |                 | medium\_replay   | 5                     | 0.1                  |
 |                 | expert           | 50                    | 0.5                  |
 |                 | mixed            | 0.5                   | 0                    |
-| | | |
 | **3s\_vs\_5z**  | medium           | 50                    | 0                    |
 |                 | medium\_replay   | 50                    | 0                    |
 |                 | expert           | 50                    | 1                    |
 |                 | mixed            | 50                    | 0                    |
-| | | |
 | **5m\_vs\_6m**  | medium           | 50                    | 0.5                  |
 |                 | medium\_replay   | 50                    | 0.5                  |
 |                 | expert           | 50                    | 100 (argmax)         |
 |                 | mixed            | 50                    | 0.5                  |
-| | | |
 | **6h\_vs\_8z**  | medium           | 50                    | 1                    |
 |                 | medium\_replay   | 50                    | 0.5                  |
 |                 | expert           | 50                    | 0                    |
