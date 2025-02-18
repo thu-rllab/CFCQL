@@ -1,8 +1,12 @@
 # CFCQL
-Code for NeurIPS2023 accepted paper: Counterfactual Conservative Q Learning for Offline Multi-agent Reinforcement Learning.
+Code for NeurIPS2023 accepted paper: [**Counterfactual Conservative Q Learning for Offline Multi-agent Reinforcement Learning.**](https://arxiv.org/abs/2309.12696)
 
-For running code in discrete action space, see "README.md" in "discrete" directory. For running code in continuous action space, see "README.md" in "continuous" directory.
+## Instructions
+For running code in discrete action space, see "README.md" in [discrete/](discrete/) directory. 
 
+For running code in continuous action space, see "README.md" in [continuous/](continuous/) directory.
+
+## Citation
 Please consider citing:
 ```
 @inproceedings{
